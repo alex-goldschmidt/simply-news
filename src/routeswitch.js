@@ -5,6 +5,7 @@ const RouteSwitch = () => {
   return (
     <BrowserRouter>
       <Navbar />
+      <App />
       <Routes>
         <Route path="/app" element={<App />} />
       </Routes>
