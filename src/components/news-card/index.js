@@ -9,17 +9,6 @@ const NewsCard = (props) => {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-    /*
-    if (event.target.value === "Left") {
-      event.target.style.color = "blue";
-    }
-    if (event.target.value === "Right") {
-      event.target.style.color = "red";
-    }
-    if (event.target.value === "Center") {
-      event.target.style.color = "black";
-    }
-    */
   };
 
   return (
