@@ -7,8 +7,17 @@ import { useState } from "react";
 const NewsCard = (props) => {
   const [value, setValue] = useState(0);
 
-  const handleChange = (event, newValue) => {
+  const handleButtonChange = (event, newValue) => {
     setValue(newValue);
+    if (newValue === "Left") {
+      console.log("Left click");
+    }
+    if (newValue === "Center") {
+      console.log("Center click");
+    }
+    if (newValue === "Right") {
+      console.log("Right click");
+    }
   };
 
   return (
@@ -30,7 +39,7 @@ const NewsCard = (props) => {
           color="primary"
           value={value}
           exclusive
-          onChange={handleChange}
+          onChange={handleButtonChange}
           aria-label="Platform"
         >
           <ToggleButton style={{ color: "Blue" }} value="Left">
