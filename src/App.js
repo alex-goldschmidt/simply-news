@@ -34,12 +34,70 @@ const App = (props) => {
         const FetchLeftNews = () => {
           NewsData.articles.forEach((obj, i) => {
             let source = obj.source.name;
-            if (source === "CNN" || source === "Axios") {
+            if (
+              source === "CNN" ||
+              source === "Axios" ||
+              source === "ABC News" ||
+              source === "NBC News" ||
+              source === "Bloomberg" ||
+              source === "MSNBC" ||
+              source === "The Guardian" ||
+              source === "The Washington Post" ||
+              source === "Business Insider" ||
+              source === "Politico" ||
+              source === "Buzzfeed" ||
+              source === "CBS News" ||
+              source === "Engadget" ||
+              source === "Mashable" ||
+              source === "New York Magazine" ||
+              source === "TechCrunch" ||
+              source === "Recode" ||
+              source === "The Huffington Post" ||
+              source === "The Verge" ||
+              source === "Time"
+            ) {
               console.log(`${source} leans left`);
             }
           });
         };
         FetchLeftNews();
+        const FetchCenterNews = () => {
+          NewsData.articles.forEach((obj, i) => {
+            let source = obj.source.name;
+            if (
+              source === "The Hill" ||
+              source === "Reuters" ||
+              source === "BBC News" ||
+              source === "Associated Press" ||
+              source === "Al Jazeera English" ||
+              source === "Fortune" ||
+              source === "Newsweek" ||
+              source === "National Geographic" ||
+              source === "Ars Technica" ||
+              source === "New Scientist" ||
+              source === "TechRadar"
+            ) {
+              console.log(`${source} leans Center`);
+            }
+          });
+        };
+        FetchCenterNews();
+        const FetchRightNews = () => {
+          NewsData.articles.forEach((obj, i) => {
+            let source = obj.source.name;
+            if (
+              source === "The Wall Street Journal" ||
+              source === "Fox News" ||
+              source === "Breitbart News" ||
+              source === "The American Conservative" ||
+              source === "National Review" ||
+              source === "The Next Web"
+            ) {
+              console.log(`${source} leans Right`);
+            }
+          });
+        };
+        FetchRightNews();
       },
     []
   );
