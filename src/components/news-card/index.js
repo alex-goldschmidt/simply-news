@@ -2,11 +2,24 @@ import styles from "./news-card.module.css";
 import { CardMedia } from "@mui/material";
 import { ToggleButtonGroup } from "@mui/material";
 import { ToggleButton } from "@mui/material";
-import { useContext } from "react";
-import { parentContext } from "../../App";
+import { useState } from "react";
 
 const NewsCard = (props) => {
-  const { handleButtonChange } = useContext(parentContext);
+  const [value, setValue] = useState("");
+
+  const handleButtonChange = (event, newValue) => {
+    setValue(newValue);
+    if (newValue === "Left") {
+      console.log("Left click");
+    }
+    if (newValue === "Center") {
+      console.log("Center click");
+    }
+    if (newValue === "Right") {
+      console.log("Right click");
+    }
+  };
+
   return (
     <div className={styles.container}>
       <CardMedia
@@ -25,6 +38,7 @@ const NewsCard = (props) => {
         <ToggleButtonGroup
           className={styles.ToggleButtonGroup}
           color="primary"
+          value={value}
           exclusive
           onChange={handleButtonChange}
           aria-label="Platform"

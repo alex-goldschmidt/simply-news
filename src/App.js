@@ -1,26 +1,9 @@
 import "./App.css";
 import NewsCard from "./components/news-card/index";
-import { useState } from "react";
 import React from "react";
 import { useEffect } from "react";
 
-export const parentContext = React.createContext();
 const App = (props) => {
-  const [value, setValue] = useState(0);
-
-  const handleButtonChange = (event, newValue) => {
-    setValue(newValue);
-    if (newValue === "Left") {
-      console.log("Left click");
-    }
-    if (newValue === "Center") {
-      console.log("Center click");
-    }
-    if (newValue === "Right") {
-      console.log("Right click");
-    }
-  };
-
   useEffect(
     () =>
       async function FetchNews() {
@@ -104,30 +87,21 @@ const App = (props) => {
 
   return (
     <div className="App">
-      <parentContext.Provider value={{ value, handleButtonChange }}>
-        <NewsCard headline="headline" source="source" />
-      </parentContext.Provider>
-      <parentContext.Provider value={{ value, handleButtonChange }}>
-        <NewsCard headline="headline" source="source" />
-      </parentContext.Provider>
-      <parentContext.Provider value={{ value, handleButtonChange }}>
-        <NewsCard headline="headline" source="source" />
-      </parentContext.Provider>
-      <parentContext.Provider value={{ value, handleButtonChange }}>
-        <NewsCard headline="headline" source="source" />
-      </parentContext.Provider>
-      <parentContext.Provider value={{ value, handleButtonChange }}>
-        <NewsCard headline="headline" source="source" />
-      </parentContext.Provider>
-      <parentContext.Provider value={{ value, handleButtonChange }}>
-        <NewsCard headline="headline" source="source" />
-      </parentContext.Provider>
-      <parentContext.Provider value={{ value, handleButtonChange }}>
-        <NewsCard headline="headline" source="source" />
-      </parentContext.Provider>
-      <parentContext.Provider value={{ value, handleButtonChange }}>
-        <NewsCard headline="headline" source="source" />
-      </parentContext.Provider>
+      <NewsCard headline="headline" source="source" />
+
+      <NewsCard headline="headline" source="source" />
+
+      <NewsCard headline="headline" source="source" />
+
+      <NewsCard headline="headline" source="source" />
+
+      <NewsCard headline="headline" source="source" />
+
+      <NewsCard headline="headline" source="source" />
+
+      <NewsCard headline="headline" source="source" />
+
+      <NewsCard headline="headline" source="source" />
     </div>
   );
 };
