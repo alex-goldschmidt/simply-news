@@ -6,17 +6,47 @@ import { useState } from "react";
 
 const NewsCard = (props) => {
   const [value, setValue] = useState("");
+  const [headline, setHeadline] = useState("");
+  const [source, setSource] = useState("");
+  const [URL, setURL] = useState("");
+  const [picture, setPicture] = useState("");
+  const {
+    LeftTitle,
+    LeftURL,
+    LeftSource,
+    LeftPicture,
+    RightTitle,
+    RightURL,
+    RightSource,
+    RightPicture,
+    CenterTitle,
+    CenterURL,
+    CenterSource,
+    CenterPicture,
+  } = props;
 
   const handleButtonChange = (event, newValue) => {
     setValue(newValue);
     if (newValue === "Left") {
       console.log("Left click");
+      setHeadline(LeftTitle);
+      setSource(LeftSource);
+      setURL(LeftURL);
+      setPicture(LeftPicture);
     }
     if (newValue === "Center") {
       console.log("Center click");
+      setHeadline(CenterTitle);
+      setSource(CenterSource);
+      setURL(CenterURL);
+      setPicture(CenterPicture);
     }
     if (newValue === "Right") {
       console.log("Right click");
+      setHeadline(RightTitle);
+      setSource(RightSource);
+      setURL(RightURL);
+      setPicture(RightPicture);
     }
   };
 
@@ -29,12 +59,14 @@ const NewsCard = (props) => {
           maxWidth: { xs: 320, md: 225 },
         }}
         component="img"
-        alt="No Image Here :("
-        src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=350&dpr=2"
+        alt="Toggle for Image"
+        src={picture} //"https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=350&dpr=2"
       />
       <div className={styles.ArticleContent}>
-        <p className={styles.headline}>{props.headline}</p>
-        <p className={styles.source}>{props.source}</p>
+        <p className={styles.headline}>
+          <a href={URL}>{headline}</a>
+        </p>
+        <p className={styles.source}>{source}</p>
         <ToggleButtonGroup
           className={styles.ToggleButtonGroup}
           color="primary"
@@ -46,7 +78,7 @@ const NewsCard = (props) => {
           <ToggleButton style={{ color: "Blue" }} value="Left">
             Left
           </ToggleButton>
-          <ToggleButton style={{ color: "rgba(0, 0, 0, 0.54)" }} value="Center">
+          <ToggleButton style={{ color: "Gray" }} value="Center">
             Center
           </ToggleButton>
           <ToggleButton style={{ color: "Red" }} value="Right">

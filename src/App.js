@@ -1,9 +1,22 @@
 import "./App.css";
 import NewsCard from "./components/news-card/index";
 import React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const App = (props) => {
+  const [LeftTitle, setLeftTitle] = useState("");
+  const [LeftSource, setLeftSource] = useState("");
+  const [LeftURL, setLeftURL] = useState("");
+  const [LeftPicture, setLeftPicture] = useState("Toggle for News");
+  const [CenterTitle, setCenterTitle] = useState("");
+  const [CenterSource, setCenterSource] = useState("");
+  const [CenterURL, setCenterURL] = useState("");
+  const [CenterPicture, setCenterPicture] = useState("Toggle for News");
+  const [RightTitle, setRightTitle] = useState("");
+  const [RightSource, setRightSource] = useState("");
+  const [RightURL, setRightURL] = useState("");
+  const [RightPicture, setRightPicture] = useState("Toggle for News");
+
   useEffect(
     () =>
       async function FetchNews() {
@@ -16,67 +29,89 @@ const App = (props) => {
 
         const FetchLeftNews = () => {
           NewsData.articles.forEach((obj, i) => {
-            let source = obj.source.name;
+            let LeftSource = obj.source.name;
+            let LeftTitle = obj.title;
+            let LeftURL = obj.url;
+            let LeftPicture = obj.urlToImage;
             if (
-              source === "CNN" ||
-              source === "Axios" ||
-              source === "ABC News" ||
-              source === "NBC News" ||
-              source === "Bloomberg" ||
-              source === "MSNBC" ||
-              source === "The Guardian" ||
-              source === "The Washington Post" ||
-              source === "Business Insider" ||
-              source === "Politico" ||
-              source === "Buzzfeed" ||
-              source === "CBS News" ||
-              source === "Engadget" ||
-              source === "Mashable" ||
-              source === "New York Magazine" ||
-              source === "TechCrunch" ||
-              source === "Recode" ||
-              source === "The Huffington Post" ||
-              source === "The Verge" ||
-              source === "Time"
+              LeftSource === "CNN" ||
+              LeftSource === "CNBC" ||
+              LeftSource === "Axios" ||
+              LeftSource === "ABC News" ||
+              LeftSource === "NBC News" ||
+              LeftSource === "Bloomberg" ||
+              LeftSource === "MSNBC" ||
+              LeftSource === "The Guardian" ||
+              LeftSource === "The Washington Post" ||
+              LeftSource === "Business Insider" ||
+              LeftSource === "Politico" ||
+              LeftSource === "Buzzfeed" ||
+              LeftSource === "CBS News" ||
+              LeftSource === "Engadget" ||
+              LeftSource === "Mashable" ||
+              LeftSource === "New York Magazine" ||
+              LeftSource === "TechCrunch" ||
+              LeftSource === "Recode" ||
+              LeftSource === "The Huffington Post" ||
+              LeftSource === "The Verge" ||
+              LeftSource === "Time"
             ) {
-              console.log(`${source} leans left`);
+              console.log(`${LeftSource} leans left`);
+              setLeftSource(LeftSource);
+              setLeftTitle(LeftTitle);
+              setLeftURL(LeftURL);
+              setLeftPicture(LeftPicture);
             }
           });
         };
         FetchLeftNews();
         const FetchCenterNews = () => {
           NewsData.articles.forEach((obj, i) => {
-            let source = obj.source.name;
+            let CenterSource = obj.source.name;
+            let CenterTitle = obj.title;
+            let CenterURL = obj.url;
+            let CenterPicture = obj.urlToImage;
             if (
-              source === "The Hill" ||
-              source === "Reuters" ||
-              source === "BBC News" ||
-              source === "Associated Press" ||
-              source === "Al Jazeera English" ||
-              source === "Fortune" ||
-              source === "Newsweek" ||
-              source === "National Geographic" ||
-              source === "Ars Technica" ||
-              source === "New Scientist" ||
-              source === "TechRadar"
+              CenterSource === "The Hill" ||
+              CenterSource === "Reuters" ||
+              CenterSource === "BBC News" ||
+              CenterSource === "Associated Press" ||
+              CenterSource === "Al Jazeera English" ||
+              CenterSource === "Fortune" ||
+              CenterSource === "Newsweek" ||
+              CenterSource === "National Geographic" ||
+              CenterSource === "Ars Technica" ||
+              CenterSource === "New Scientist" ||
+              CenterSource === "TechRadar"
             ) {
-              console.log(`${source} leans Center`);
+              console.log(`${CenterSource} leans Center`);
+              setCenterSource(CenterSource);
+              setCenterTitle(CenterTitle);
+              setCenterURL(CenterURL);
+              setCenterPicture(CenterPicture);
             }
           });
         };
         FetchCenterNews();
         const FetchRightNews = () => {
           NewsData.articles.forEach((obj, i) => {
-            let source = obj.source.name;
+            let RightSource = obj.source.name;
+            let RightTitle = obj.title;
+            let RightURL = obj.url;
+            let RightPicture = obj.urlToImage;
             if (
-              source === "The Wall Street Journal" ||
-              source === "Fox News" ||
-              source === "Breitbart News" ||
-              source === "The American Conservative" ||
-              source === "National Review" ||
-              source === "The Next Web"
+              RightSource === "The Wall Street Journal" ||
+              RightSource === "Fox News" ||
+              RightSource === "Breitbart News" ||
+              RightSource === "The American Conservative" ||
+              RightSource === "National Review" ||
+              RightSource === "The Next Web"
             ) {
-              console.log(`${source} leans Right`);
+              console.log(`${RightSource} leans Right`);
+              setRightSource(RightSource);
+              setRightTitle(RightTitle);
+              setRightURL(RightURL);
+              setRightPicture(RightPicture);
             }
           });
         };
@@ -87,7 +122,20 @@ const App = (props) => {
 
   return (
     <div className="App">
-      <NewsCard headline="headline" source="source" />
+      <NewsCard
+        LeftSource={LeftSource}
+        LeftTitle={LeftTitle}
+        LeftURL={LeftURL}
+        RightSource={RightSource}
+        RightTitle={RightTitle}
+        RightURL={RightURL}
+        CenterSource={CenterSource}
+        CenterTitle={CenterTitle}
+        CenterURL={CenterURL}
+        LeftPicture={LeftPicture}
+        CenterPicture={CenterPicture}
+        RightPicture={RightPicture}
+      />
 
       <NewsCard headline="headline" source="source" />
 
