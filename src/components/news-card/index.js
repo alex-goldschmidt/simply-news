@@ -64,7 +64,9 @@ const NewsCard = (props) => {
       />
       <div className={styles.ArticleContent}>
         <p className={styles.headline}>
-          <a href={URL}>{headline}</a>
+          <a href={URL} target="_blank" rel="noopener noreferrer">
+            {headline}
+          </a>
         </p>
         <p className={styles.source}>{source}</p>
         <ToggleButtonGroup
