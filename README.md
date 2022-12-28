@@ -1,6 +1,31 @@
-# Getting Started with Create React App
+# Simply News
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Simply News is a news aggregator that allows users to read news stories that have political biases of left, right, and center.
+
+## Tech
+
+Simply News uses a number of technologies to work properly:
+
+- React
+- Material UI
+- HTML
+- CSS
+- Jest
+
+## Installation
+
+Simply News requires the user to clone this repository and run it on there local server.
+
+Clone the repository by clicking SSH and copying the line below it.
+
+![image](https://user-images.githubusercontent.com/83550948/209869942-c96906b9-cdca-4896-a8bf-64028a216af2.png)
+
+From there, run the commands below in your favorite terminal
+
+```
+git clone git@github.com:alex-goldschmidt/simply-news.git
+cd ./simply-news
+```
 
 ## Available Scripts
 
